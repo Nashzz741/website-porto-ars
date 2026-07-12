@@ -14,15 +14,16 @@ export default function Hero() {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
-
-  const textVariant = {
-    hidden: { y: "110%" },
-    visible: {
-      y: 0,
-      transition: { duration: 1, ease: [0.25, 1, 0.5, 1] },
+const textVariant = {
+  hidden: { y: "110%" },
+  visible: {
+    y: 0,
+    transition: { 
+      duration: 1, 
+      ease: "easeOut" // <--- Pakai string bawaan ini juga mulus dan super aman
     },
-  };
-
+  },
+};
   const containerVariant = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.1 } },
@@ -67,7 +68,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
-            transition={{ delay: 0.4, duration: 1, ease: [0.25, 1, 0.5, 1] }}
+            transition={{ delay: 0.4, duration: 1, ease: "easeOut" }}
             className="mt-6 text-sm sm:text-base md:text-sm lg:text-base text-studioMuted max-w-xl leading-relaxed"
           >
             Crafting precise digital experiences through editorial rigor and
@@ -98,7 +99,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: 40, scale: 0.98 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1], delay: 0.3 }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
           className="w-full flex justify-center md:justify-end items-center order-2 md:order-none mt-4 md:mt-0"
         >
           {/* Maksimum tinggi gambar di desktop disesuaikan (max-h-[65vh]) agar selaras dengan penurunan teks */}
