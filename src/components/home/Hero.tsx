@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function Hero() {
   // Fungsi Smooth Scroll Manual JavaScript
@@ -14,27 +14,27 @@ export default function Hero() {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
-const textVariant = {
-  hidden: { y: "110%" },
-  visible: {
-    y: 0,
-    transition: { 
-      duration: 1, 
-      ease: "easeOut" // <--- Pakai string bawaan ini juga mulus dan super aman
+
+  const textVariant: Variants = {
+    hidden: { y: "110%" },
+    visible: {
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
     },
-  },
-};
+  };
+
   const containerVariant = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.1 } },
   };
 
   return (
-    // md:h-screen mengunci halaman pas satu layar di desktop, md:overflow-hidden mencegah scrollbar muncul
     <section className="w-full min-h-screen md:min-h-0 md:h-screen flex flex-col justify-center px-6 sm:px-12 md:px-24 bg-background pt-36 pb-16 md:py-0 md:overflow-hidden relative">
       <div className="w-full max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center h-full">
         {/* KOLOM KIRI: TEKS */}
-        {/* md:pt-12 ditambahkan di bawah untuk menurunkan seluruh blok teks di desktop agar tidak nabrak navbar */}
         <motion.div
           variants={containerVariant}
           initial="hidden"
@@ -43,7 +43,6 @@ const textVariant = {
           className="flex flex-col items-start justify-center order-1 md:order-none md:pt-12"
         >
           {/* Row 1 — GRAPHIC DESIGNER */}
-          {/* Ukuran font desktop disesuaikan ke md:text-4xl / lg:text-5xl agar proporsinya pas & elegan */}
           <div className="overflow-hidden h-auto py-2 w-full relative">
             <motion.h1
               variants={textVariant}
@@ -102,7 +101,6 @@ const textVariant = {
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
           className="w-full flex justify-center md:justify-end items-center order-2 md:order-none mt-4 md:mt-0"
         >
-          {/* Maksimum tinggi gambar di desktop disesuaikan (max-h-[65vh]) agar selaras dengan penurunan teks */}
           <div className="w-full max-w-[290px] sm:max-w-[350px] md:max-w-[320px] lg:max-w-[380px] aspect-[3/4] max-h-[65vh] overflow-hidden relative group">
             <Image
               src="/foto_cwe_ars.png"
