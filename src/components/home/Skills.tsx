@@ -2,16 +2,19 @@
 import { motion } from "framer-motion";
 
 export default function Skills() {
+  // Ditambahkan properti 'title' di setiap objek agar TypeScript tidak error saat build
   const skillCategories = [
     {
+      title: "DESIGN & ADMIN",
       items: [
         "Graphic Design (Canva)",
         "Administrative Support",
         "Communication",
-        "Team Management ",
+        "Team Management",
       ],
     },
     {
+      title: "OFFICE & MANAGEMENT",
       items: [
         "Social Media Management",
         "Microsoft Office",
@@ -20,7 +23,8 @@ export default function Skills() {
       ],
     },
     {
-      items: ["Customer Service", "Programming", "Gaming",],
+      title: "TECHNICAL & OTHERS",
+      items: ["Customer Service", "Programming", "Gaming"],
     },
   ];
 
@@ -28,7 +32,7 @@ export default function Skills() {
     <section className="w-full min-h-screen flex flex-col justify-center bg-studioGrey text-background px-6 sm:px-12 md:px-24 py-12">
       <div className="w-full max-w-[1440px] mx-auto">
         <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-16 md:mb-24">
-          Skills 
+          Skills
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
